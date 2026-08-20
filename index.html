@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Apple Clone</title>
+<meta name="description" content="apple.com 레이아웃을 재현한 학습용 클론 사이트">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ============ GLOBAL NAV ============ -->
+<header class="gnav" id="gnav">
+  <nav class="gnav-inner" aria-label="글로벌">
+    <a class="gnav-logo" href="#main" aria-label="홈">
+      <svg viewBox="0 0 20 24" width="16" height="20" aria-hidden="true">
+        <path fill="currentColor" d="M16.3 12.7c0-2.9 2.4-4.3 2.5-4.4-1.4-2-3.5-2.3-4.2-2.3-1.8-.2-3.5 1-4.4 1-.9 0-2.3-1-3.8-1-2 0-3.8 1.1-4.8 2.9-2 3.5-.5 8.8 1.5 11.6 1 1.4 2.1 3 3.6 2.9 1.4-.1 2-.9 3.7-.9 1.7 0 2.2.9 3.7.9 1.5 0 2.5-1.4 3.4-2.8 1.1-1.6 1.5-3.2 1.6-3.3-.1 0-3-1.2-3-4.6zM13.4 4.1c.8-1 1.3-2.3 1.2-3.7-1.2.1-2.6.8-3.4 1.8-.7.9-1.4 2.3-1.2 3.6 1.3.1 2.6-.7 3.4-1.7z"/>
+      </svg>
+    </a>
+    <ul class="gnav-list">
+      <li><a href="#">스토어</a></li>
+      <li><a href="#mac">Mac</a></li>
+      <li><a href="#ipad">iPad</a></li>
+      <li><a href="#iphone">iPhone</a></li>
+      <li><a href="#watch">Watch</a></li>
+      <li><a href="#">Vision</a></li>
+      <li><a href="#">AirPods</a></li>
+      <li><a href="#">TV 및 홈</a></li>
+      <li><a href="#entertainment">엔터테인먼트</a></li>
+      <li><a href="#">액세서리</a></li>
+      <li><a href="#">고객지원</a></li>
+    </ul>
+    <button class="gnav-icon" id="searchBtn" aria-label="검색" aria-expanded="false">
+      <svg viewBox="0 0 17 17" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M11.6 10.5h-.6l-.2-.2a5 5 0 1 0-.5.5l.2.2v.6l3.8 3.8 1.1-1.1-3.8-3.8zm-4.6 0a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"/></svg>
+    </button>
+    <button class="gnav-icon" id="bagBtn" aria-label="장바구니">
+      <svg viewBox="0 0 17 17" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M13.5 5.2h-2.1V4a2.9 2.9 0 0 0-5.8 0v1.2H3.5a.5.5 0 0 0-.5.47l-.5 9.3a.5.5 0 0 0 .5.53h11a.5.5 0 0 0 .5-.53l-.5-9.3a.5.5 0 0 0-.5-.47zM6.6 4a1.9 1.9 0 0 1 3.8 0v1.2H6.6V4z"/></svg>
+    </button>
+    <button class="gnav-burger" id="burger" aria-label="메뉴" aria-expanded="false"><span></span><span></span></button>
+  </nav>
+
+  <div class="gnav-search" id="gnavSearch" hidden>
+    <div class="gnav-search-inner">
+      <label class="search-field">
+        <svg viewBox="0 0 17 17" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M11.6 10.5h-.6l-.2-.2a5 5 0 1 0-.5.5l.2.2v.6l3.8 3.8 1.1-1.1-3.8-3.8zm-4.6 0a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"/></svg>
+        <input type="search" id="searchInput" placeholder="apple.com 검색" aria-label="검색어">
+      </label>
+      <p class="search-label">빠른 링크</p>
+      <ul class="search-links">
+        <li><a href="#">주문 조회</a></li>
+        <li><a href="#">하드웨어 보상판매</a></li>
+        <li><a href="#">Apple 계정</a></li>
+        <li><a href="#">AirPods 비교하기</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" hidden>
+  <ul>
+    <li><a href="#">스토어</a></li><li><a href="#mac">Mac</a></li><li><a href="#ipad">iPad</a></li>
+    <li><a href="#iphone">iPhone</a></li><li><a href="#watch">Watch</a></li><li><a href="#">Vision</a></li>
+    <li><a href="#">AirPods</a></li><li><a href="#">TV 및 홈</a></li><li><a href="#entertainment">엔터테인먼트</a></li>
+    <li><a href="#">액세서리</a></li><li><a href="#">고객지원</a></li>
+  </ul>
+</div>
+
+<!-- ============ PROMO BAR ============ -->
+<div class="promo-bar">
+  <p>신학기 혜택. 자격 요건을 갖춘 제품 구입 시 기프트 카드를 드립니다.<sup>1</sup> <a href="#">자세히 보기 <span aria-hidden="true">&rsaquo;</span></a></p>
+</div>
+
+<main id="main">
+
+  <!-- ============ HERO 1 ============ -->
+  <section class="hero hero-dark" id="iphone">
+    <div class="hero-copy">
+      <p class="eyebrow">iPhone</p>
+      <h1 class="hero-title">완전히 새로워진 라인업.</h1>
+      <p class="hero-sub">당신에게 꼭 맞는 iPhone을 찾아보세요.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#">더 알아보기</a>
+        <a class="btn btn-ghost" href="#">구입하기</a>
+      </div>
+    </div>
+    <div class="hero-art art-iphone" aria-hidden="true">
+      <div class="phone phone-a"><span class="notch"></span></div>
+      <div class="phone phone-b"><span class="notch"></span></div>
+      <div class="phone phone-c"><span class="notch"></span></div>
+    </div>
+  </section>
+
+  <!-- ============ HERO 2 ============ -->
+  <section class="hero hero-light" id="mac">
+    <div class="hero-copy">
+      <p class="eyebrow">MacBook Air</p>
+      <h2 class="hero-title">가볍게. 그리고 압도적으로.</h2>
+      <p class="hero-sub">M5 칩으로 하루 종일 이어지는 성능.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#">더 알아보기</a>
+        <a class="btn btn-ghost" href="#">구입하기</a>
+      </div>
+    </div>
+    <div class="hero-art art-laptop" aria-hidden="true">
+      <div class="laptop"><div class="screen"><span class="glow"></span></div><div class="base"></div></div>
+    </div>
+  </section>
+
+  <!-- ============ HALF TILES ============ -->
+  <div class="tile-grid">
+
+    <section class="tile tile-dark" id="ipad">
+      <div class="tile-copy">
+        <p class="eyebrow">iPad Air</p>
+        <h2 class="tile-title">얇게, 강력하게.</h2>
+        <p class="tile-sub">M4 칩 탑재.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#">더 알아보기</a>
+          <a class="btn btn-ghost" href="#">구입하기</a>
+        </div>
+      </div>
+      <div class="tile-art art-tablet" aria-hidden="true"><div class="tablet"></div></div>
+    </section>
+
+    <section class="tile tile-light">
+      <div class="tile-copy">
+        <p class="eyebrow">MacBook Pro</p>
+        <h2 class="tile-title">프로의 기준.</h2>
+        <p class="tile-sub">M5 Pro와 M5 Max 중에서 선택하세요.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#">더 알아보기</a>
+          <a class="btn btn-ghost" href="#">구입하기</a>
+        </div>
+      </div>
+      <div class="tile-art art-laptop small" aria-hidden="true">
+        <div class="laptop"><div class="screen"><span class="glow warm"></span></div><div class="base"></div></div>
+      </div>
+    </section>
+
+    <section class="tile tile-light" id="watch">
+      <div class="tile-copy">
+        <p class="eyebrow">Apple Watch Series 11</p>
+        <h2 class="tile-title">건강을 손목 위에.</h2>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#">더 알아보기</a>
+          <a class="btn btn-ghost" href="#">구입하기</a>
+        </div>
+      </div>
+      <div class="tile-art art-watch" aria-hidden="true"><div class="watch"><span class="watch-face"></span><span class="crown"></span></div></div>
+    </section>
+
+    <section class="tile tile-dark">
+      <div class="tile-copy">
+        <p class="eyebrow">iPad Pro</p>
+        <h2 class="tile-title">놀랍도록 얇은 파워.</h2>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#">더 알아보기</a>
+          <a class="btn btn-ghost" href="#">구입하기</a>
+        </div>
+      </div>
+      <div class="tile-art art-tablet" aria-hidden="true"><div class="tablet pro"></div></div>
+    </section>
+
+    <section class="tile tile-light">
+      <div class="tile-copy">
+        <p class="eyebrow">하드웨어 보상판매</p>
+        <h2 class="tile-title">지금 쓰는 기기로<br>다음 기기를.</h2>
+        <p class="tile-sub">보상 크레딧으로 더 합리적으로 업그레이드하세요.<sup>2</sup></p>
+        <div class="cta-row"><a class="btn btn-primary" href="#">더 알아보기</a></div>
+      </div>
+      <div class="tile-art art-tradein" aria-hidden="true"><div class="swap"><span></span><span></span></div></div>
+    </section>
+
+    <section class="tile tile-white">
+      <div class="tile-copy">
+        <p class="eyebrow">Apple Card</p>
+        <h2 class="tile-title">매일의 결제에<br>매일의 혜택을.</h2>
+        <div class="cta-row"><a class="btn btn-primary" href="#">더 알아보기</a></div>
+      </div>
+      <div class="tile-art art-card" aria-hidden="true"><div class="creditcard"></div></div>
+    </section>
+
+  </div>
+
+  <!-- ============ ENTERTAINMENT CAROUSEL ============ -->
+  <section class="ent" id="entertainment">
+    <h2 class="ent-title">끝없는 엔터테인먼트.</h2>
+    <div class="ent-viewport">
+      <div class="ent-track" id="entTrack">
+        <article class="ent-card c1"><h3>tv+</h3><p>오리지널 시리즈와 영화</p></article>
+        <article class="ent-card c2"><h3>Music</h3><p>1억 곡의 음악, 광고 없이</p></article>
+        <article class="ent-card c3"><h3>Arcade</h3><p>광고도 인앱 구입도 없는 게임</p></article>
+        <article class="ent-card c4"><h3>Fitness+</h3><p>모두를 위한 운동과 명상</p></article>
+        <article class="ent-card c5"><h3>News+</h3><p>수백 종의 잡지와 신문</p></article>
+      </div>
+    </div>
+    <div class="ent-nav">
+      <button id="entPrev" aria-label="이전 항목">&lsaquo;</button>
+      <button id="entNext" aria-label="다음 항목">&rsaquo;</button>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <p class="footnote">1. 신학기 프로모션은 자격 요건을 갖춘 고객에 한해 제공됩니다. 본 사이트는 학습 목적의 클론입니다.</p>
+    <p class="footnote">2. 표시된 제품 정보와 혜택은 예시이며 실제와 다를 수 있습니다.</p>
+
+    <div class="footer-cols">
+      <div class="fcol">
+        <h3>쇼핑 및 알아보기</h3>
+        <ul><li><a href="#">스토어</a></li><li><a href="#">Mac</a></li><li><a href="#">iPad</a></li><li><a href="#">iPhone</a></li><li><a href="#">Watch</a></li><li><a href="#">Vision</a></li><li><a href="#">AirPods</a></li><li><a href="#">TV 및 홈</a></li><li><a href="#">액세서리</a></li><li><a href="#">기프트 카드</a></li></ul>
+      </div>
+      <div class="fcol">
+        <h3>Wallet</h3>
+        <ul><li><a href="#">Wallet</a></li><li><a href="#">Apple Card</a></li><li><a href="#">Apple Pay</a></li><li><a href="#">Apple Cash</a></li></ul>
+        <h3>계정</h3>
+        <ul><li><a href="#">계정 관리</a></li><li><a href="#">스토어 계정</a></li><li><a href="#">iCloud</a></li></ul>
+      </div>
+      <div class="fcol">
+        <h3>엔터테인먼트</h3>
+        <ul><li><a href="#">Apple One</a></li><li><a href="#">Apple TV+</a></li><li><a href="#">Apple Music</a></li><li><a href="#">Apple Arcade</a></li><li><a href="#">Apple Fitness+</a></li><li><a href="#">Apple News+</a></li><li><a href="#">Apple Podcasts</a></li><li><a href="#">Apple Books</a></li><li><a href="#">App Store</a></li></ul>
+      </div>
+      <div class="fcol">
+        <h3>Apple Store</h3>
+        <ul><li><a href="#">매장 찾기</a></li><li><a href="#">Genius Bar</a></li><li><a href="#">Today at Apple</a></li><li><a href="#">그룹 예약</a></li><li><a href="#">주문 상태</a></li><li><a href="#">쇼핑 도움말</a></li></ul>
+      </div>
+      <div class="fcol">
+        <h3>비즈니스</h3>
+        <ul><li><a href="#">비즈니스 솔루션</a></li><li><a href="#">비즈니스용 구입</a></li></ul>
+        <h3>교육</h3>
+        <ul><li><a href="#">교육 기관용</a></li><li><a href="#">대학생 할인</a></li></ul>
+        <h3>의료 기관</h3>
+        <ul><li><a href="#">의료 기관용</a></li><li><a href="#">건강 기능</a></li></ul>
+      </div>
+      <div class="fcol">
+        <h3>가치</h3>
+        <ul><li><a href="#">손쉬운 사용</a></li><li><a href="#">환경</a></li><li><a href="#">개인정보 보호</a></li><li><a href="#">공급망</a></li><li><a href="#">교육 지원</a></li></ul>
+        <h3>회사 소개</h3>
+        <ul><li><a href="#">뉴스룸</a></li><li><a href="#">채용 정보</a></li><li><a href="#">투자자 정보</a></li><li><a href="#">윤리 및 규정 준수</a></li><li><a href="#">이벤트</a></li></ul>
+      </div>
+    </div>
+
+    <p class="footer-more">더 다양한 구입 방법: <a href="#">가까운 매장 방문하기</a> 또는 <a href="#">리셀러 찾기</a>.</p>
+
+    <div class="footer-bottom">
+      <p class="copyright">Copyright © 2026 학습용 클론 사이트. Apple Inc.와 무관합니다.</p>
+      <ul class="legal">
+        <li><a href="#">개인정보 처리방침</a></li>
+        <li><a href="#">이용약관</a></li>
+        <li><a href="#">판매 및 환불</a></li>
+        <li><a href="#">법적 고지</a></li>
+        <li><a href="#">사이트 맵</a></li>
+      </ul>
+      <p class="region">대한민국</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

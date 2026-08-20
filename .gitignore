@@ -1,0 +1,15 @@
+# Tooling state
+.omc/
+.playwright-mcp/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Test artifacts
+*.png
+!assets/**/*.png
