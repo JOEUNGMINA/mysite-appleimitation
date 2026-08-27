@@ -1,3 +1,8 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
 # Tooling state
 .omc/
 .playwright-mcp/
