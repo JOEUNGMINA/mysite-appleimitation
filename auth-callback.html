@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>로그인 처리 중 — Apple Clone</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+<main class="auth-main">
+  <div class="auth-card">
+    <p class="loading" id="statusText">로그인 정보를 확인하고 있습니다…</p>
+    <p class="notice notice-error" id="errorBox" role="alert" hidden></p>
+    <p id="retryWrap" hidden>
+      <a class="btn btn-primary" href="login.html">로그인 화면으로 돌아가기</a>
+    </p>
+  </div>
+</main>
+
+<script type="module" src="js/auth-callback.js"></script>
+</body>
+</html>

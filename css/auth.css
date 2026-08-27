@@ -1,0 +1,514 @@
+/* =========================================================
+   인증 · 계정 화면 전용 스타일
+
+   styles.css 를 먼저 불러온 뒤 이 파일을 얹는다.
+   색·폰트·라운드 등 토큰은 styles.css 의 :root 를 그대로 쓴다.
+   ========================================================= */
+
+/* ---------- hidden 속성 보장 ----------
+   .btn 이나 .avatar-fallback 처럼 display 를 직접 지정한 클래스는
+   브라우저 기본 스타일의 [hidden] { display: none } 을 덮어쓴다.
+   그 결과 JS 로 el.hidden = true 를 걸어도 요소가 그대로 보인다.
+   (관리자 아닌 사용자에게 관리자페이지 버튼이 노출되던 원인)
+   숨김은 표시 여부의 문제이므로 여기서 한 번에 못 박는다. */
+[hidden] {
+  display: none !important;
+}
+
+/* ---------- 공통 레이아웃 ---------- */
+
+.auth-main {
+  min-height: calc(100vh - var(--nav-h));
+  background: var(--paper-2);
+  padding: 48px 22px 80px;
+}
+
+.auth-card {
+  max-width: 420px;
+  margin: 0 auto;
+  background: var(--paper);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.auth-card--wide {
+  max-width: 980px;
+}
+
+.auth-title {
+  font-size: 32px;
+  line-height: 1.125;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.auth-sub {
+  color: var(--ink-2);
+  font-size: 15px;
+  text-align: center;
+  margin: 0 0 28px;
+}
+
+.page-head {
+  max-width: 980px;
+  margin: 0 auto 24px;
+}
+
+.page-head h1 {
+  font-size: 40px;
+  line-height: 1.1;
+}
+
+.page-head p {
+  color: var(--ink-2);
+  font-size: 16px;
+  margin: 6px 0 0;
+}
+
+/* ---------- 버튼 ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 46px;
+  padding: 0 20px;
+  border-radius: 980px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: opacity 0.2s var(--ease), background-color 0.2s var(--ease);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--blue);
+  color: #fff;
+}
+
+.btn-primary:not(:disabled):hover {
+  background: #0077ed;
+  text-decoration: none;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--blue);
+  border: 1px solid rgba(0, 113, 227, 0.4);
+}
+
+.btn-secondary:not(:disabled):hover {
+  background: rgba(0, 113, 227, 0.06);
+  text-decoration: none;
+}
+
+.btn-quiet {
+  width: auto;
+  min-height: 36px;
+  padding: 0 14px;
+  font-size: 14px;
+  border-radius: 980px;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.btn-quiet:not(:disabled):hover {
+  background: var(--paper-2);
+  text-decoration: none;
+}
+
+/* 구글 버튼은 브랜드 가이드에 따라 흰 바탕 + 회색 테두리를 쓴다. */
+.btn-google {
+  background: #fff;
+  color: #1f1f1f;
+  border: 1px solid #dadce0;
+  font-weight: 500;
+}
+
+.btn-google:not(:disabled):hover {
+  background: #f8f9fa;
+  text-decoration: none;
+}
+
+.btn-google svg {
+  flex: none;
+}
+
+/* ---------- 폼 ---------- */
+
+.field {
+  display: block;
+  margin-bottom: 18px;
+}
+
+.field-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-2);
+  margin-bottom: 6px;
+}
+
+.field-input {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 14px;
+  font: inherit;
+  font-size: 16px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  border-radius: 12px;
+}
+
+.field-input:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.18);
+}
+
+.field-input:disabled {
+  background: var(--paper-2);
+  color: var(--ink-2);
+}
+
+.field-help {
+  font-size: 12px;
+  color: var(--ink-2);
+  margin: 6px 0 0;
+}
+
+.checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.checkbox input {
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
+  flex: none;
+  accent-color: var(--blue);
+}
+
+/* ---------- 상태 메시지 ---------- */
+
+.notice {
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+.notice-error {
+  background: #fff2f2;
+  color: #b3261e;
+  border: 1px solid #f5c6c3;
+}
+
+.notice-success {
+  background: #eefaf1;
+  color: #146c2e;
+  border: 1px solid #bfe6cb;
+}
+
+.notice-info {
+  background: #eef4ff;
+  color: #1a4fa0;
+  border: 1px solid #c5d8f7;
+}
+
+.loading {
+  text-align: center;
+  color: var(--ink-2);
+  font-size: 15px;
+  padding: 40px 0;
+}
+
+.empty {
+  text-align: center;
+  color: var(--ink-2);
+  font-size: 15px;
+  padding: 48px 0;
+}
+
+/* ---------- 구분선 ---------- */
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ink-2);
+  font-size: 12px;
+  margin: 24px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+/* ---------- 프로필 요약 ---------- */
+
+.profile-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--paper-2);
+  flex: none;
+}
+
+.avatar-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+
+.profile-head-text {
+  min-width: 0;
+}
+
+.profile-name {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.profile-email {
+  font-size: 14px;
+  color: var(--ink-2);
+  margin: 2px 0 0;
+  overflow-wrap: anywhere;
+}
+
+.meta-list {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  margin: 28px 0 0;
+  padding-top: 18px;
+}
+
+.meta-list div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 14px;
+  padding: 7px 0;
+}
+
+.meta-list dt {
+  color: var(--ink-2);
+}
+
+.meta-list dd {
+  margin: 0;
+  text-align: right;
+}
+
+/* ---------- 배지 ---------- */
+
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 980px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.badge-admin {
+  background: rgba(0, 113, 227, 0.12);
+  color: #0060bf;
+}
+
+.badge-user {
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--ink-2);
+}
+
+/* ---------- 관리자 표 ---------- */
+
+.admin-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.admin-toolbar .field-input {
+  flex: 1;
+  min-width: 220px;
+}
+
+.admin-count {
+  font-size: 14px;
+  color: var(--ink-2);
+}
+
+.table-scroll {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 720px;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  vertical-align: middle;
+}
+
+.admin-table th {
+  background: var(--paper-2);
+  font-weight: 500;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+
+.admin-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.admin-table .cell-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-table .avatar {
+  width: 32px;
+  height: 32px;
+  font-size: 13px;
+}
+
+.cell-name {
+  font-weight: 500;
+}
+
+.cell-email {
+  color: var(--ink-2);
+  font-size: 13px;
+}
+
+.row-self {
+  background: rgba(0, 113, 227, 0.04);
+}
+
+/* ---------- 하단 링크 ---------- */
+
+.auth-foot {
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-2);
+  margin-top: 24px;
+}
+
+.auth-foot a {
+  color: var(--blue);
+}
+
+.actions-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.actions-row .btn {
+  width: auto;
+  flex: 1;
+  min-width: 140px;
+}
+
+/* ---------- 글로벌 내비 계정 항목 ---------- */
+
+.gnav-account {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: inherit;
+  white-space: nowrap;
+  max-width: 160px;
+}
+
+.gnav-account:hover {
+  text-decoration: none;
+  opacity: 0.7;
+}
+
+.gnav-account img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex: none;
+}
+
+.gnav-account span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 833px) {
+  .gnav-account span {
+    display: none;
+  }
+}
+
+/* ---------- 반응형 ---------- */
+
+@media (max-width: 734px) {
+  .auth-main {
+    padding: 28px 16px 60px;
+  }
+
+  .auth-card {
+    padding: 28px 20px;
+  }
+
+  .auth-title {
+    font-size: 26px;
+  }
+
+  .page-head h1 {
+    font-size: 30px;
+  }
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>관리자 — Apple Clone</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+<header class="gnav">
+  <nav class="gnav-inner" aria-label="글로벌">
+    <a class="gnav-logo" href="index.html" aria-label="홈">
+      <svg viewBox="0 0 20 24" width="16" height="20" aria-hidden="true">
+        <path fill="currentColor" d="M16.3 12.7c0-2.9 2.4-4.3 2.5-4.4-1.4-2-3.5-2.3-4.2-2.3-1.8-.2-3.5 1-4.4 1-.9 0-2.3-1-3.8-1-2 0-3.8 1.1-4.8 2.9-2 3.5-.5 8.8 1.5 11.6 1 1.4 2.1 3 3.6 2.9 1.4-.1 2-.9 3.7-.9 1.7 0 2.2.9 3.7.9 1.5 0 2.5-1.4 3.4-2.8 1.1-1.6 1.5-3.2 1.6-3.3-.1 0-3-1.2-3-4.6zM13.4 4.1c.8-1 1.3-2.3 1.2-3.7-1.2.1-2.6.8-3.4 1.8-.7.9-1.4 2.3-1.2 3.6 1.3.1 2.6-.7 3.4-1.7z"/>
+      </svg>
+    </a>
+  </nav>
+</header>
+
+<main class="auth-main">
+  <div id="page" hidden>
+    <div class="page-head">
+      <h1>회원 관리</h1>
+      <p>가입한 회원을 조회하고 권한을 변경합니다.</p>
+    </div>
+
+    <div class="auth-card auth-card--wide">
+      <p class="notice notice-error" id="errorBox" role="alert" hidden></p>
+      <p class="notice notice-success" id="successBox" role="status" hidden></p>
+
+      <div class="admin-toolbar">
+        <input class="field-input" type="search" id="searchInput"
+               placeholder="이름 또는 이메일로 검색" aria-label="회원 검색">
+        <span class="admin-count" id="countText"></span>
+        <button type="button" class="btn btn-quiet" id="refreshBtn">새로고침</button>
+      </div>
+
+      <div class="table-scroll">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th scope="col">회원</th>
+              <th scope="col">권한</th>
+              <th scope="col">가입일</th>
+              <th scope="col">가입 상태</th>
+              <th scope="col">관리</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+
+      <p class="empty" id="emptyBox" hidden>조건에 맞는 회원이 없습니다.</p>
+    </div>
+
+    <p class="auth-foot"><a href="mypage.html">마이페이지로 돌아가기</a></p>
+  </div>
+
+  <p class="loading" id="loading">불러오는 중…</p>
+</main>
+
+<script type="module" src="js/admin.js"></script>
+</body>
+</html>
